@@ -1,10 +1,17 @@
 <html>
+<head>
+	<title>Transistor Biaser - بایاس کننده ترانزیستور</title>
+	<meta charset="UTF-8" />
+</head>
+	
+<h2>TransistorBiaser - بایاس کننده ترانزیستور</h2>
 <form>
 	Vcc = <input name="vcc" type="number" id="vcc" style="background:#ffaaaa"/> volts<br />
 	Ic = <input name="ic" type="number" id="ic" style="background:#aaffaa"/> mA<br />
 	Beta = <input name="beta" type="number" value="100" id="beta"/><br />
 	<input type="button" onclick="calculate()" value="Calculate"/>
 </form>
+<img src="transistor.jpg" />
 
 <div style="display:none; border:solid 1px green; width:300px; padding-left:10px;" id="result">
 	<p id="rc"></p>
@@ -37,4 +44,5 @@
 		document.getElementById("r2").innerHTML ="R2 = " + Math.round(R2);
 	}
 </script>
+	<footer>نوشته شده توسط مهدي فرقاني فرد - <a href="http://t.me/mahdyfo">@MaHDyfo</a></footer>
 </html>
