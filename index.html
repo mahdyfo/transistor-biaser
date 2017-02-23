@@ -1,0 +1,41 @@
+<html>
+<form>
+	Vcc = <input name="vcc" type="number" id="vcc" style="background:#ffaaaa"/> volts<br />
+	Ic = <input name="ic" type="number" id="ic" style="background:#aaffaa"/> mA<br />
+	Beta = <input name="beta" type="number" value="100" id="beta"/><br />
+	<input type="button" onclick="calculate()" value="Calculate"/>
+</form>
+
+<div style="display:none; border:solid 1px green; width:300px; padding-left:10px;" id="result">
+	<p id="rc"></p>
+	<p id="re"></p>
+	<p id="r1"></p>
+	<p id="r2"></p>
+</div>
+
+<script>
+	function calculate(){
+		var Vcc = document.getElementById("vcc").value; //v
+		var Ic = document.getElementById("ic").value; //mA
+		var beta = document.getElementById("beta").value;
+		
+		Ic /= 1000;
+		var VRe = Vcc * 0.1;
+		var Vt = VRe + 0.7;
+		var VRc = (Vcc - (0.2 + VRe)) / 2;
+		
+		var Re = VRe / Ic; //ohms
+		var Rc = VRc / Ic;
+		var Rt = beta * Re / 10;
+		var R1 = Rt * Vcc / Vt;
+		var R2 = Rt / (1 - (Vt/Vcc));
+		
+		document.getElementById("result").style.display = "block";
+		document.getElementById("rc").innerHTML ="Rc = " + Math.round(Rc);
+		document.getElementById("re").innerHTML ="Re = " + Math.round(Re);
+		document.getElementById("r1").innerHTML ="R1 = " + Math.round(R1);
+		document.getElementById("r2").innerHTML ="R2 = " + Math.round(R2);
+		//alert("Rc = " + Math.round(Rc) + "\nRe = " + Math.round(Re) + "\nR1 = " + Math.round(R1, 2) + "\nR2 = " + Math.round(R2));
+	}
+</script>
+</html>
