@@ -28,14 +28,13 @@
 		
 		Ic /= 1000;
 		var VRe = Vcc * 0.1;
-		var Vt = VRe + 0.7;
-		var VRc = Vcc - (0.2 + VRe) - (Vcc / 2);
+		var Vt = VRe + 0.6;
+		var VRc = Vcc/2 - VRe;
 		
-		var Re = VRe / Ic; //ohms
+		var Re = VRe / Ic;
 		var Rc = VRc / Ic;
-		var Rt = beta * Re / 10;
-		var R1 = Rt * Vcc / Vt;
-		var R2 = Rt / (1 - (Vt/Vcc));
+		var R2 = Vt / (Ic / 10);
+		var R1 = (Vcc - Vt) / (Ic / 10);
 		
 		document.getElementById("result").style.display = "block";
 		document.getElementById("rc").innerHTML ="Rc = " + Math.round(Rc);
