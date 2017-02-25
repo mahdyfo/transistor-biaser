@@ -29,7 +29,7 @@
 		Ic /= 1000;
 		var VRe = Vcc * 0.1;
 		var Vt = VRe + 0.7;
-		var VRc = (Vcc - (0.2 + VRe)) / 2;
+		var VRc = Vcc - (0.2 + VRe) - (Vcc / 2);
 		
 		var Re = VRe / Ic; //ohms
 		var Rc = VRc / Ic;
